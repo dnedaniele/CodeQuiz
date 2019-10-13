@@ -5,27 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="questions.css">
+    <title>CodeQuiz</title>
 </head>
 
 <body>
+
+
     <div>
-        <h1> View Highscores:  </h1> <span id="scoreNumb"></span>
+        <h2> View Highscores: </h2> <span id="scoreNumb"></span>
     </div>
-    <div>
-        <h1> Time: </h1> <p id="countdown"></p>
+    <div id="time">
+        <h2> Time: </h2>
+        <p id="countdown"></p>
     </div>
     <br>
-    <button id="start"> Start the Quiz! </button>
+    <div class="gamediv">
+        <div id="firstpageStart">
+        <h1>Test your skills!</h1>
+        <button id="start"> Start the Quiz! </button>
+         </div>
+        <div id="q1">
+            <p>questions 1</p>
+            <button>click</button>
+        </div>
 
-    <div id="q1"> 
-        <p>questions 1</p>
-        <button>click</button>
-    </div>
-
-    <div id="q2">
-        <p>Question2</p>
-        <button>click</button>
+        <div id="q2">
+            <p>Question2</p>
+            <button>click</button>
+        </div>
     </div>
 
     <script src="questions.js">
