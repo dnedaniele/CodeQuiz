@@ -19,11 +19,15 @@ var CountDown = document.querySelector("#countdown");
 
 HighScore = 0;
 
+var question1 = document.querySelector('#q1');
+    question1.style.display = 'none';
+var question2 = document.querySelector('#q2');
+    question2.style.display = 'none';
 
 startButton.addEventListener('click', function () {
   console.log("click works")
   setTime();
-  //start showing questions
+  showQuestion();
   var secondsLeft = 10;  // increase the number after testing
 
 
@@ -40,6 +44,20 @@ startButton.addEventListener('click', function () {
       }
     }
   }
+  function showQuestion() {
+    var question1 = document.querySelector('#q1');
+    question1.style.display = 'block';
+  };
+  function hideQuestion () {
+    var question1 = document.querySelector('#q1');
+    question1.style.display = 'none';
+  }
+    //if (question1.style.display == "none") {
+    //   question1.style.display = "none" ;
+    // } else {
+    //   question1.style.display = "block";
+    // }
+   
 
   //                make visible the first question (no hide) 
   //                and start the count down
