@@ -13,11 +13,11 @@
 
 
     <div>
-        <h2> View Highscores: </h2> <span id="scoreNumb"></span>
+        <h2> View Highscores:  <span id="scoreNumb"></span> </h2>
     </div>
     <div id="time">
-        <h2> Time: </h2>
-        <p id="countdown"></p>
+        <h2> Time: <span id="countdown">0</span> </h2>
+    
     </div>
     <br>
     <div class="gamediv">
@@ -34,12 +34,20 @@
         </div>
 
         <div id="q2">
-                <h2>The condition in an if / else statement is enclosed within ____.</h2>
-                <button id="#answA1">quotes</button>
-                <button>curly brackets</button>
-                <button>parentheses</button>
-                <button>square brackets</button>
+            <h2>The condition in an if / else statement is enclosed within ____.</h2>
+            <button id="#answA1">quotes</button>
+            <button id="#answB1">curly brackets</button>
+            <button id="#answC1">parentheses</button>
+            <button id="#answD1">square brackets</button>
         </div>
+
+         <br> <br>
+         
+        <form id="todo-form" method="POST">
+            <p>Your final Score is: </p>
+            <label>Enter Initials: </label>
+            <input type="text" id="todo-text" />
+        </form>
     </div>
 
     <script src="questions.js">

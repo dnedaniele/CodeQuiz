@@ -19,15 +19,15 @@ var questions = [
 //                and start the count down
 // // 2. when I click on the answer (event2)
 //                if the answer is right - 
-                //          correct message 
-                //          a. add point - 
-                // else 
-                //          wrong message 
-                //          no point++ - 
-                //          subtract time
+//          correct message 
+//          a. add point - 
+// else 
+//          wrong message 
+//          no point++ - 
+//          subtract time
 //                after 2 secs the second question appears
 // 3. time runs out and/or all questions are answered: 
-        //        show final score.
+//        show final score.
 
 
 var startButton = document.querySelector("#start");
@@ -49,12 +49,12 @@ var squareBrackets = document.querySelector("#ansD1");
 
 // show and hide
 var question1 = document.querySelector('#q1');
-    question1.style.display = 'none';
+question1.style.display = 'none';
 var question2 = document.querySelector('#q2');
-    question2.style.display = 'none';
+question2.style.display = 'none';
 
 
-    //Start the game
+//Start the game
 startButton.addEventListener('click', function () {
 
   // TIME
@@ -83,47 +83,92 @@ startButton.addEventListener('click', function () {
   }
   answerOne()
   function answerOne() {
-  document.getElementById("#answA").onclick = function () {
-    console.log('right')
-    HighScore++;
-    hide ();
-    Show2 ();
+    document.getElementById("#answA").onclick = function () {
+      console.log('right')
+      HighScore++;
+      hide();
+      Show2();
+    }
+    document.getElementById("#answB").onclick = function () {
+      console.log('wrong')
+      HighScore--;
+      secondsLeft--;
+      hide();
+      Show2();
+    }
+    document.getElementById("#answC").onclick = function () {
+      console.log('wrong')
+      HighScore--;
+      secondsLeft--;
+      hide();
+      Show2();
+    }
+    document.getElementById("#answD").onclick = function () {
+      console.log('wrong')
+      HighScore--;
+      secondsLeft--;
+      hide();
+      Show2();
+    }
   }
-  document.getElementById("#answB").onclick = function () {
-    console.log('wrong')
-    HighScore--;
-    secondsLeft--;
-    hide ();
-    Show2 ();
-  }
-  document.getElementById("#answC").onclick = function () {
-    console.log('wrong')
-    HighScore--;
-    secondsLeft--;
-    hide ();
-    Show2 ();
-  }
-  document.getElementById("#answD").onclick = function () {
-    console.log('wrong')
-    HighScore--;
-    secondsLeft--;
-    hide ();
-    Show2 ();
-  }
-}
+  // second question
+  answerTwo()
+  function answerTwo() {
+    document.getElementById("#answA1").onclick = function () {
+      console.log('wrong')
+      HighScore++;
+      hide2();
+      // ShowRes ();
+    }
+    document.getElementById("#answB1").onclick = function () {
+      console.log('wrong')
+      HighScore--;
+      secondsLeft--;
+      hide2();
+      //ShowRes ();
+    }
+    document.getElementById("#answC1").onclick = function () {
+      console.log('right')
+      HighScore--;
+      secondsLeft--;
+      hide2();
+      //ShowRes ();
+    }
+    document.getElementById("#answD1").onclick = function () {
+      console.log('wrong')
+      HighScore--;
+      secondsLeft--;
+      hide2();
+      //ShowRes ();
+    }
 
-// answerTwo() 
-// function answerTwo(){
-//   document.getElementById("#answA1").onclick = function () {
-//     console.log('wrong')
-//     HighScore++;
-//     hide2 ();
-// }
-// }
+  }
 
+
+  //show result + local storage
+  init();
+  function init() {
+    var emptyArr = [];
+    // Get stored todos from localStorage
+    // Parsing the JSON string to an object
+    var storeResult = JSON.parse(localStorage.getItem("inputName"));
+
+    // If todos were retrieved from localStorage, update the todos array to it
+    if (storeResult !== null) {
+      emptyArr = storeResult;
+    }
+    // function subName() {
+    //   document.getElementById("#result-form").submit();
+    //   console.log("#result-form")
+    // }
+    // subName()
+
+
+
+  }
 
 })
-  
+
 ///FUNCTIONS
 
 // Hide and Show
@@ -132,29 +177,22 @@ function Show() {
   question1.style.display = 'block';
 }
 
-  
-function hide () {
+
+function hide() {
   var question1 = document.querySelector('#q1');
   question1.style.display = 'none';
 }
-function hide2 () {
+function hide2() {
   question2 = document.querySelector('#q2');
-  question2.style.display = 'none'; 
-} 
+  question2.style.display = 'none';
+}
 
-    function Show2 () {
-      var question2 = document.querySelector('#q2');
+function Show2() {
+  var question2 = document.querySelector('#q2');
   question2.style.display = 'block';
-    }
-  
-    // answerTwo() 
-// function answerTwo(){
-//   document.getElementById("#answA1").onclick = function () {
-//     console.log('wrong')
-//     HighScore++;
-//     hide2 ();
-// }
-// }
+}
+
+
 
 //failed experiments
 
@@ -170,7 +208,28 @@ function hide2 () {
 //     document.body.appendChild(btn);
 // }
 // }
+// *************************************************************
+// for (var i = 0; i < questions.length; i++) {
+// if (questions[i] === questions.title);           //  APPROVED
+// console.log("build question");// buildQuestion ()
+//  }
 
+// for (var i = 0; i < questions.length; i++) {             // APRROVED
+// // if (questions[i] === questions.title);           
+// //console.log(questions[i].title + questions[i].choices );
+// //console.log( questions[i].choices.length)
+// // var items = questions[i].choices.length;
+// // for (var n = 0; n < items; n++) {
+// //  // console.log(questions[i].choices[n])
+//   //console.log(questions[i].choices)
+//   for (var n = 0; n < questions[i].choices.length; n++) {
+//     console.log(questions[i].choices[n])
+//   }
+// if (questions[i].choices.length = 4) {
+//     // console.log(questions[i].choices)
+//    }
+
+// *************************************************************************8
 // var items = document.querySelectorAll('#answB, #answC, #answD');
 
 // for (var i = 0; i < items.length; i++)
@@ -179,10 +238,10 @@ function hide2 () {
 //     console.log('wrong');
 //   };
 // } 
-    
-   
 
-  
 
- 
+
+
+
+
 
