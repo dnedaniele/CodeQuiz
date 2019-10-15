@@ -146,22 +146,20 @@ startButton.addEventListener('click', function () {
 
 
   //show result + local storage
-  init();
-  function init() {
-    var emptyArr = [];
-    // Get stored todos from localStorage
-    // Parsing the JSON string to an object
-    var storeResult = JSON.parse(localStorage.getItem("inputName"));
 
-    // If todos were retrieved from localStorage, update the todos array to it
-    if (storeResult !== null) {
-      emptyArr = storeResult;
-    }
-    // function subName() {
-    //   document.getElementById("#result-form").submit();
-    //   console.log("#result-form")
-    // }
-    // subName()
+  <form id="result-form" method="POST">
+    <p>Your final Score is: </p>
+    <label>Enter Initials: </label>
+    <input type="text" id="inputName" />
+    <input type="button" onclick="subName()" value="Submit">
+</form>
+
+   
+
+function subName() {
+  var inputValue = document.getElementById("inputName").value;
+  console.log(inputValue)
+}
 
 
 
