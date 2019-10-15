@@ -58,7 +58,7 @@ var question2 = document.querySelector('#q2');
 startButton.addEventListener('click', function () {
 
   // TIME
-  var secondsLeft = 10;  // increase the number after testing
+  var secondsLeft = 65;  // increase the number after testing
   setTime();
   function setTime() {
     var timerInterval = setInterval(timerDown, 1000);
@@ -86,21 +86,41 @@ startButton.addEventListener('click', function () {
   document.getElementById("#answA").onclick = function () {
     console.log('right')
     HighScore++;
+    hide ();
+    Show2 ();
   }
   document.getElementById("#answB").onclick = function () {
     console.log('wrong')
     HighScore--;
+    secondsLeft--;
+    hide ();
+    Show2 ();
   }
   document.getElementById("#answC").onclick = function () {
     console.log('wrong')
     HighScore--;
+    secondsLeft--;
+    hide ();
+    Show2 ();
   }
   document.getElementById("#answD").onclick = function () {
     console.log('wrong')
     HighScore--;
+    secondsLeft--;
+    hide ();
+    Show2 ();
   }
-}  
-console.log(HighScore);
+}
+
+// answerTwo() 
+// function answerTwo(){
+//   document.getElementById("#answA1").onclick = function () {
+//     console.log('wrong')
+//     HighScore++;
+//     hide2 ();
+// }
+// }
+
 
 })
   
@@ -111,14 +131,30 @@ function Show() {
   var question1 = document.querySelector('#q1');
   question1.style.display = 'block';
 }
-//   for (i = 0; i < numQuest.length; i++){
 
-//   }
   
 function hide () {
   var question1 = document.querySelector('#q1');
   question1.style.display = 'none';
 }
+function hide2 () {
+  question2 = document.querySelector('#q2');
+  question2.style.display = 'none'; 
+} 
+
+    function Show2 () {
+      var question2 = document.querySelector('#q2');
+  question2.style.display = 'block';
+    }
+  
+    // answerTwo() 
+// function answerTwo(){
+//   document.getElementById("#answA1").onclick = function () {
+//     console.log('wrong')
+//     HighScore++;
+//     hide2 ();
+// }
+// }
 
 //failed experiments
 
