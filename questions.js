@@ -52,7 +52,8 @@ var question1 = document.querySelector('#q1');
 question1.style.display = 'none';
 var question2 = document.querySelector('#q2');
 question2.style.display = 'none';
-
+var form = document.querySelector('#result-form');
+  form.style.display = 'none';
 
 //Start the game
 startButton.addEventListener('click', function () {
@@ -68,7 +69,9 @@ startButton.addEventListener('click', function () {
 
       if (secondsLeft === 0) {
         clearInterval(timerInterval);
-        console.log('time out');
+        hide();
+        hide2()
+        Show3()
         //sendMessage(Score, show timeOut);
       }
     }
@@ -118,52 +121,40 @@ startButton.addEventListener('click', function () {
       console.log('wrong')
       HighScore++;
       hide2();
-      // ShowRes ();
+      Show3();
     }
     document.getElementById("#answB1").onclick = function () {
       console.log('wrong')
       HighScore--;
       secondsLeft--;
       hide2();
-      //ShowRes ();
+      Show3();
     }
     document.getElementById("#answC1").onclick = function () {
       console.log('right')
       HighScore--;
       secondsLeft--;
       hide2();
-      //ShowRes ();
+      Show3();
     }
     document.getElementById("#answD1").onclick = function () {
       console.log('wrong')
       HighScore--;
       secondsLeft--;
       hide2();
-      //ShowRes ();
+      Show3();
     }
 
   }
 
-
   //show result + local storage
 
-  <form id="result-form" method="POST">
-    <p>Your final Score is: </p>
-    <label>Enter Initials: </label>
-    <input type="text" id="inputName" />
-    <input type="button" onclick="subName()" value="Submit">
-</form>
-
-   
-
+  subName()
 function subName() {
   var inputValue = document.getElementById("inputName").value;
   console.log(inputValue)
 }
 
-
-
-  }
 
 })
 
@@ -185,10 +176,21 @@ function hide2() {
   question2.style.display = 'none';
 }
 
+function hide3() {
+  var form = document.querySelector('#result-form');
+  form.style.display = 'none';
+}
+
 function Show2() {
   var question2 = document.querySelector('#q2');
   question2.style.display = 'block';
 }
+
+function Show3() {
+  var form = document.querySelector('#result-form');
+  form.style.display = 'block';
+}
+
 
 
 
