@@ -31,9 +31,9 @@ var questions = [
 
 
 var startButton = document.querySelector("#start");
-var HighScore = document.querySelector("#scoreNumb");
+var counter = document.querySelector("#scoreNumb");
 var CountDown = document.querySelector("#countdown");
-HighScore = 0;
+var HighScore = 0;
 // answer buttons
 //q1
 var strings = document.querySelector("#answA");
@@ -87,8 +87,8 @@ startButton.addEventListener('click', function () {
   answerOne()
   function answerOne() {
     document.getElementById("#answA").onclick = function () {
-      console.log('right')
-      HighScore++;
+      console.log('wrong')
+      HighScore--;
       hide();
       Show2();
     }
@@ -100,8 +100,8 @@ startButton.addEventListener('click', function () {
       Show2();
     }
     document.getElementById("#answC").onclick = function () {
-      console.log('wrong')
-      HighScore--;
+      console.log('right')
+      HighScore++;
       secondsLeft--;
       hide();
       Show2();
@@ -119,7 +119,7 @@ startButton.addEventListener('click', function () {
   function answerTwo() {
     document.getElementById("#answA1").onclick = function () {
       console.log('wrong')
-      HighScore++;
+      HighScore--;
       hide2();
       Show3();
     }
@@ -132,7 +132,7 @@ startButton.addEventListener('click', function () {
     }
     document.getElementById("#answC1").onclick = function () {
       console.log('right')
-      HighScore--;
+      HighScore++;
       secondsLeft--;
       hide2();
       Show3();
@@ -147,12 +147,19 @@ startButton.addEventListener('click', function () {
 
   }
 
-  //show result + local storage
+  //show result + local storage 
 
   document.getElementById("myBtn").onclick = subName;
 function subName() {
   var inputValue = document.getElementById("inputName").value;
+
   console.log(inputValue)
+  console.log(HighScore)
+  counter.textContent = HighScore;
+  
+  //var score = '<span>' + HighScore + '</span>' 
+  //document.getElementById("#scoreNumb") === score;   // check what is wrong
+  
 }
 subName();
 
