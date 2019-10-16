@@ -149,11 +149,12 @@ startButton.addEventListener('click', function () {
 
   //show result + local storage
 
-  subName()
+  document.getElementById("myBtn").onclick = subName;
 function subName() {
   var inputValue = document.getElementById("inputName").value;
   console.log(inputValue)
 }
+subName();
 
 
 })
