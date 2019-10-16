@@ -53,7 +53,7 @@ question1.style.display = 'none';
 var question2 = document.querySelector('#q2');
 question2.style.display = 'none';
 var form = document.querySelector('#result-form');
-  form.style.display = 'none';
+form.style.display = 'none';
 
 //Start the game
 startButton.addEventListener('click', function () {
@@ -149,19 +149,47 @@ startButton.addEventListener('click', function () {
 
   //show result + local storage 
 
-  document.getElementById("myBtn").onclick = subName;
-function subName() {
-  var inputValue = document.getElementById("inputName").value;
 
-  console.log(inputValue)
-  console.log(HighScore)
-  counter.textContent = HighScore;
-  
-  //var score = '<span>' + HighScore + '</span>' 
-  //document.getElementById("#scoreNumb") === score;   // check what is wrong
-  
-}
-subName();
+  var signUpButton = document.querySelector("#myBtn");
+
+
+  signUpButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    
+    counter.textContent = HighScore;
+    var inputValue = document.getElementById("inputName").value;
+
+    if (inputValue === "") {
+      alert("initials cannot be blank");
+    }
+    else {
+
+      localStorage.setItem("inputName", inputValue);
+
+      // show the infos in the storage
+      renderLastRegistered();
+      function renderLastRegistered() {
+        var email = localStorage.getItem("inputName");
+
+        if (inputValue === null) {
+          return;
+        }
+        var initAndScore = document.querySelector("#InputName");
+        initAndScore.textContent = inputValue;
+      }
+
+    }
+  });
+
+  // document.getElementById("myBtn").onclick = subName;
+  // function subName() {
+  //   var inputValue = document.getElementById("inputName").value;
+
+  //   console.log(inputValue)
+  //   console.log(HighScore)
+  //   counter.textContent = HighScore;
+  // }
+  // subName();
 
 
 })
