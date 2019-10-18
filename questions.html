@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="questions.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>CodeQuiz</title>
 </head>
 
@@ -46,11 +47,18 @@
         <br> <br>
 
         <form id="result-form" method="POST">
-            <p>Your final Score is: <span id="scoreNumb"> </span> </p>
+            <h2>Get you score :)</h2>
+            <br>
             <label>Enter Initials: </label>
             <input type="text" id="inputName" />
             <input type="button" id="myBtn" value="Submit">
         </form>
+
+        <div id="last">
+            <h2>High Scores</h2>
+            <br>
+            <div id="scoreNumb"> </div>
+        </div>
     </div>
 
     <script src="questions.js">

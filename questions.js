@@ -34,6 +34,7 @@ var startButton = document.querySelector("#start");
 var counter = document.querySelector("#scoreNumb");
 var CountDown = document.querySelector("#countdown");
 var HighScore = 0;
+
 // answer buttons
 //q1
 var strings = document.querySelector("#answA");
@@ -54,6 +55,8 @@ var question2 = document.querySelector('#q2');
 question2.style.display = 'none';
 var form = document.querySelector('#result-form');
 form.style.display = 'none';
+var last = document.querySelector('#last');
+last.style.display = 'none';
 
 //Start the game
 startButton.addEventListener('click', function () {
@@ -155,8 +158,10 @@ startButton.addEventListener('click', function () {
 
   signUpButton.addEventListener("click", function (event) {
     event.preventDefault();
+    Showlast();
+    hide3();
     
-    counter.textContent = HighScore;
+    //counter.textContent = HighScore;
     var inputValue = document.getElementById("inputName").value;
 
     if (inputValue === "") {
@@ -164,33 +169,31 @@ startButton.addEventListener('click', function () {
     }
     else {
 
-      localStorage.setItem("inputName", inputValue);
+      localStorage.setItem("inputName", JSON.stringify(inputValue));
+      localStorage.setItem("HighScore", JSON.stringify(HighScore));
 
       // show the infos in the storage
-      renderLastRegistered();
-      function renderLastRegistered() {
-        var email = localStorage.getItem("inputName");
+      renderStored();
+      function renderStored() {
 
-        if (inputValue === null) {
-          return;
-        }
-        var initAndScore = document.querySelector("#InputName");
-        initAndScore.textContent = inputValue;
+
+        var getInput = JSON.parse(localStorage.getItem("inputName"));
+        var getScore = JSON.parse(localStorage.getItem("HighScore"));
+        $("#scoreNumb").append("<ul>" + getInput + getScore);
+        
+        // var buttonRe = $("<button>").text("new Match");
+        // $("body").append(buttonRE);
+        // buttonRE.on("click", function () {
+        //  hidelast() 
+        // buttonRE.style.display = "none";
+        // });
       }
+      
 
     }
   });
 
-  // document.getElementById("myBtn").onclick = subName;
-  // function subName() {
-  //   var inputValue = document.getElementById("inputName").value;
-
-  //   console.log(inputValue)
-  //   console.log(HighScore)
-  //   counter.textContent = HighScore;
-  // }
-  // subName();
-
+  
 
 })
 
@@ -201,6 +204,7 @@ function Show() {
   var question1 = document.querySelector('#q1');
   question1.style.display = 'block';
 }
+
 
 
 function hide() {
@@ -217,6 +221,12 @@ function hide3() {
   form.style.display = 'none';
 }
 
+function hidelast() {
+  var last = document.querySelector('#last');
+  last.style.display = 'none';
+  
+}
+
 function Show2() {
   var question2 = document.querySelector('#q2');
   question2.style.display = 'block';
@@ -225,6 +235,14 @@ function Show2() {
 function Show3() {
   var form = document.querySelector('#result-form');
   form.style.display = 'block';
+}
+
+function Showlast() {
+  var last = document.querySelector('#last');
+  last.style.display = 'block';
+  
+  
+
 }
 
 
