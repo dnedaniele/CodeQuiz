@@ -11,7 +11,27 @@ var questions = [
     answer: "parentheses"
   },
 
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses"
+  },
+
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses"
+  },
+
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses"
+  },
+
 ];
+
+var questionIndex;
 
 //***************  Pseudo Code **************** //
 // 1. botton "start the Quiz" (event 1)
@@ -160,7 +180,7 @@ startButton.addEventListener('click', function () {
     event.preventDefault();
     Showlast();
     hide3();
-    
+
     //counter.textContent = HighScore;
     var inputValue = document.getElementById("inputName").value;
 
@@ -180,7 +200,7 @@ startButton.addEventListener('click', function () {
         var getInput = JSON.parse(localStorage.getItem("inputName"));
         var getScore = JSON.parse(localStorage.getItem("HighScore"));
         $("#scoreNumb").append("<ul>" + getInput + getScore);
-        
+
         // var buttonRe = $("<button>").text("new Match");
         // $("body").append(buttonRE);
         // buttonRE.on("click", function () {
@@ -188,12 +208,12 @@ startButton.addEventListener('click', function () {
         // buttonRE.style.display = "none";
         // });
       }
-      
+
 
     }
   });
 
-  
+
 
 })
 
@@ -224,7 +244,7 @@ function hide3() {
 function hidelast() {
   var last = document.querySelector('#last');
   last.style.display = 'none';
-  
+
 }
 
 function Show2() {
@@ -240,8 +260,8 @@ function Show3() {
 function Showlast() {
   var last = document.querySelector('#last');
   last.style.display = 'block';
-  
-  
+
+
 
 }
 
