@@ -47,9 +47,21 @@ function renderQuestion(questionsIndex) {
     $('#question-box').html(questionBox);
 
     currentQuestion.choices.forEach(function (choice) {
-        var button = $('<button>');
-        button.text(choice);
-        console.log(button);
+        //console.log(choice)
+        var questionButton = $('<button>');
+        questionButton.text(choice);
+        questionBox.append(questionButton)
+
+        questionButton.on('click', function (e) {
+            console.log(currentQuestion.answer === e.target.innerText ? "you are right" : "you are wrong")  // console.log(currentQuestion.answer === e.target.innerText
+            if (currentQuestion.answer === e.target.innerText) {
+                questionBox.append($('<p>"you are right"</p>'));
+            }
+            else {
+                questionBox.append($('<p>"you are wrong"</p>'));
+            }
+        })
+
     })
 
 }
