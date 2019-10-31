@@ -54,12 +54,16 @@ function renderQuestion(questionsIndex) {
 
         questionButton.on('click', function (e) {
             console.log(currentQuestion.answer === e.target.innerText ? "you are right" : "you are wrong")  // console.log(currentQuestion.answer === e.target.innerText
+            var feedback;
             if (currentQuestion.answer === e.target.innerText) {
-                questionBox.append($('<p>"you are right"</p>'));
+                feedback = $('<p>you are right</p>');
+                questionBox.append(feedback);
             }
             else {
-                questionBox.append($('<p>"you are wrong"</p>'));
+                feedback = $('<p>you are wrong</p>');                                                       /// feedback to the question
+                questionBox.append(feedback);
             }
+            setTimeout(function () { feedback.empty() }, 1000)
         })
 
     })
