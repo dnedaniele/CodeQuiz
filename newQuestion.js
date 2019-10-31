@@ -73,5 +73,10 @@ function renderQuestion(questionsIndex) {
 startButton.on('click', function () {
     questionsIndex = 0;
     renderQuestion(questionsIndex);
+    var next = $('<button>');
+    var prev = $('<button>');
+
+    // add text
+    // add event listener next.on ('click')
 });
 
